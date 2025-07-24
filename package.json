@@ -1,0 +1,28 @@
+{
+    "name": "blind-voice-chat",
+    "version": "1.0.0",
+    "description": "تطبيق دردشة صوتية للمكفوفين مع تشفير من طرف لطرف، دعم بصمة الوجه والصوت، وواجهة صوتية كاملة",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "dev": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "socket.io": "^4.7.5",
+      "sqlite3": "^5.1.6"
+    },
+    "engines": {
+      "node": ">=18.0.0"
+    },
+    "keywords": [
+      "accessibility",
+      "voice",
+      "chat",
+      "blind",
+      "webauthn",
+      "encryption"
+    ],
+    "author": "Developer",
+    "license": "MIT"
+  }
