@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دردشة صوتية للمكفوفين</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="app">
+        <!-- شاشة الدخول -->
+        <div id="loginScreen" class="screen">
+            <h1>دردشة صوتية للمكفوفين</h1>
+            <button onclick="startFaceLogin()">تسجيل دخول ببصمة الوجه</button>
+            <button onclick="startVoiceLogin()">تسجيل دخول بصوتي</button>
+            <button onclick="startNewUser()">مستخدم جديد</button>
+        </div>
+
+        <!-- تسجيل اسم المستخدم صوتيًا -->
+        <div id="voiceRegister" class="screen" style="display:none;">
+            <h2>سجل اسمك الثنائي صوتياً</h2>
+            <p id="voiceInstruction">قل اسمك الكامل الآن</p>
+            <button onclick="startVoiceCapture()">ابدأ التسجيل الصوتي</button>
+            <button onclick="confirmVoiceName()">نعم، تم التعرف بشكل صحيح</button>
+            <button onclick="goBackToLogin()">إلغاء</button>
+        </div>
+
+        <!-- القائمة الرئيسية -->
+        <div id="mainMenu" class="screen" style="display:none;">
+            <h2>اختر النظام</h2>
+            <button onclick="enterChat()">الدخول إلى الدردشة</button>
+            <button onclick="enterGov()">الدخول إلى الحكومة الإلكترونية</button>
+            <button onclick="logout()">تسجيل خروج</button>
+        </div>
+
+        <!-- شاشة الدردشة -->
+        <div id="chatScreen" class="screen" style="display:none;">
+            <h2>الدردشة</h2>
+            <div id="friendsList"></div>
+            <input type="text" id="searchFriend" placeholder="اسم الصديق" />
+            <button onclick="sendFriendRequest()">إضافة صديق</button>
+            <div id="chatArea"></div>
+            <input type="text" id="messageInput" placeholder="اكتب رسالة..." />
+            <button onclick="sendMessage()">إرسال</button>
+            <button onclick="backToMenu()">العودة</button>
+        </div>
+
+        <!-- الحكومة الإلكترونية -->
+        <div id="govScreen" class="screen" style="display:none;">
+            <h2>الخدمات الحكومية</h2>
+            <button onclick="generateCriminalRecord()">طلب شهادة عدم محكومية</button>
+            <div id="certificateOutput"></div>
+            <button onclick="backToMenu()">العودة</button>
+        </div>
+    </div>
+
+    <!-- أصوات التأكيد -->
+    <audio id="successSound" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
+    <audio id="errorSound" src="https://www.soundjay.com/buttons/sounds/button-02.mp3"></audio>
+
+    <!-- Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
